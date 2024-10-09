@@ -1,1 +1,59 @@
-<p>Hello world!</p>
+<style>
+  .fixPadding {
+    padding-right: 0px;
+  }
+</style>
+
+<div class="container">
+  <div class="col">
+    <h3>{{ titulo }}</h3>
+  </div>
+  <hr />
+  <form>
+    <div class="row">
+      <div class="col form-group fixPadding col-md-2">
+        <label class="visually-hidden" for="nombre">Nombre:</label>
+        <input
+          type="text"
+          name="nombre"
+          id="nombre"
+          placeholder="Ingrese un nombre"
+          class="form-control"
+          [(ngModel)]="nombreInput"
+        />
+      </div>
+      <div class="col form-group fixPadding col-md-2">
+        <label class="visually-hidden" for="apellido">Apellido:</label>
+        <input
+          type="text"
+          name="apellido"
+          id="apellido"
+          placeholder="Ingrese un apellido"
+          class="form-control"
+          [(ngModel)]="apellidoInput"
+        />
+      </div>
+      <div class="col">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          (click)="agregarPersona()"
+        >
+          Agregar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+<br />
+
+<div class="container">
+  <hr />
+  <div class="row">
+    <div class="col">
+      <div *ngFor="let persona of personas; let i = index">
+        {{ i + 1 }}: {{ persona.nombre }} {{ persona.apellido }}
+      </div>
+    </div>
+  </div>
+</div>
