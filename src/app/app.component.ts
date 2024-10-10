@@ -11,7 +11,7 @@ export class AppComponent {
   nombreInput = "";
   apellidoInput = "";
 
-  personas:Persona[] = [new Persona('Guillermo','Sánchez'),new Persona('Karla','Monroy'),new Persona('David','Medina')];
+  personas:Persona[] = [new Persona('Guillermo','Sánchez'),new Persona('Karla','Monroy'),new Persona('David','Medina'),new Persona('Javier','Obregón')];
 
   agregarPersona(){
     let persona1 = new Persona(this.nombreInput,this.apellidoInput);
