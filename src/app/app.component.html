@@ -9,41 +9,9 @@
     <h3>{{ titulo }}</h3>
   </div>
   <hr />
-  <form>
-    <div class="row">
-      <div class="col form-group fixPadding col-md-2">
-        <label class="visually-hidden" for="nombre">Nombre:</label>
-        <input
-          type="text"
-          name="nombre"
-          id="nombre"
-          placeholder="Ingrese un nombre"
-          class="form-control"
-          [(ngModel)]="nombreInput"
-        />
-      </div>
-      <div class="col form-group fixPadding col-md-2">
-        <label class="visually-hidden" for="apellido">Apellido:</label>
-        <input
-          type="text"
-          name="apellido"
-          id="apellido"
-          placeholder="Ingrese un apellido"
-          class="form-control"
-          [(ngModel)]="apellidoInput"
-        />
-      </div>
-      <div class="col">
-        <button
-          type="submit"
-          class="btn btn-primary"
-          (click)="agregarPersona()"
-        >
-          Agregar
-        </button>
-      </div>
-    </div>
-  </form>
+  <app-formulario (personaCreada)="personaAgregada($event)">
+
+  </app-formulario>
   <hr />
   <app-persona
     *ngFor="let personaElemento of personas; let i = index"
