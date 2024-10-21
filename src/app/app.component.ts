@@ -1,24 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Persona } from './persona.model';
 import { LoggingService } from './LoggingService.service';
+import { PersonasService } from './personas.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
-export class AppComponent {
-  titulo = "Listado de personas";
-  
-  personas:Persona[] = [new Persona('Guillermo','Sánchez'),new Persona('Karla','Monroy'),new Persona('David','Medina')];
+export class AppComponent implements OnInit {
+  titulo = 'Listado de personas';
 
-  constructor(private loggingService:LoggingService){
-  
+  personas: Persona[] = [];
+
+  constructor(
+    private loggingService: LoggingService,
+    private personasService: PersonasService
+  ) {}
+
+  ngOnInit(): void {
+    this.personas = this.personasService.personas;
   }
-
-  personaAgregada(persona:Persona){
-    this.personas.push(persona);
-    this.loggingService.enviaMensajeAConsola("Agregamos a la persona "+persona.nombre + " "+ persona.apellido+" al arreglo.");
-  }
-
 }
